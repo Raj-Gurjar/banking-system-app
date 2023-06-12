@@ -1,0 +1,55 @@
+@import "./variables";
+
+
+navbar {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  padding: 5px 15px;
+  transition: all 1s ease;
+  margin: 0 auto;
+  background-color: $black-400;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    img {
+      height: 30px;
+      width: 70px;
+      border-radius: 10px;
+
+      box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.7), 0 2px 4px hsla(0, 0%, 0%, 0.8);
+    }
+  }
+
+  ul {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    column-gap: 10px;
+    z-index: 34;
+    transition: all 1s ease;
+
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.823);
+
+    li {
+      a {
+        font-size: 15px;
+        font-weight: 900;
+        padding: 8px 16px;
+        text-transform: capitalize;
+        font-family: sans-serif;
+
+        &:hover {
+          box-shadow: inset 0 -5px 20px hsla(0, 0%, 0%, 0.4), /* top light */ inset 0 5px 20px hsla(0, 0%, 100%, 0.4),
+            -12px 12px 5px hsla(0, 0%, 0%, 0.15), 10px 25px 10px hsla(0, 0%, 0%, 0.2);
+
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+}
+
+

@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Services from './components/Services';
+import Footer from './components/Footer';
+import AllCustomers from './components/AllCustomers';
+import Transactions from './components/Transactions';
+import TransferFunds from './components/TransferFunds';
+// import { app, database } from './firebaseConfig';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+
+      <Navbar />
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Services />} />
+          <Route path="/allCustomers" element={<AllCustomers />} />
+          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/moneyTransfer" element={<TransferFunds />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
