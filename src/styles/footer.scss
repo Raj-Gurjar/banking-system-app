@@ -1,88 +1,78 @@
-.footer{
-  /* background-color: brown; */
-  height: 50vh;
+.footer {
+
+  background-color: black;
+  
+  height: 60vh;
+  padding-top: 20px;
+  padding-bottom: 30px;
   display: flex;
   justify-content: space-around;
 }
 
-.handles{
+.handles {
   width: 200px;
   /* background-color: aqua; */
 }
 
-
-.page-links{
+.contacts {
   width: 200px;
-  /* background-color: aquamarine; */
-  padding-top: 27px;
-  padding-left: 45px;
-  font-family: 'Poppins';
+  line-height: 2rem;
 }
 
-.page-links a{
-  padding-top: 30px;
-  color: #b4d2ff;
-  text-decoration: none;
-}
-
-.message{
+.message {
   width: 300px;
-  /* background-color: blue; */
   display: flex;
-  /* justify-content: center; */
-  padding-top: 30px;
   align-items: center;
   flex-direction: column;
-  font-family: 'Poppins';
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  .forms {
+    background-color: #7878cc;
+    padding: 10px;
+    input {
+      width: 14rem;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      padding: 10px;
+      // margin: 5px;
+    }
+
+    input:nth-child(3) {
+      height: 70px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+  }
 }
 
-.message input{
+.off-web {
   margin-top: 20px;
-  width: 14rem;
-  height: 2rem;
-  border: none;
-  border-radius: 5px;
-  color: black;
+  margin-left: 20px;
 }
-
-.socials{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.socials a{
-  padding-top: 10px;
-  padding-left: 20px;
-}
-
-.off-web{
-  margin-top: 20px;
-  margin-left: 50px;
-  font-family: 'Poppins';
-}
-
-.off-web a{
-  text-decoration: none;
-  color: #b4d2ff;
-}
-
 
 /* STYLING IMAGES */
 
-.handles .main-logo{
+.handles .main-logo {
   width: 8rem;
   margin-left: 32px;
 }
 
-.socials img{
+.socials img {
   width: 30px;
 }
 
-
 /* COMMON STYLING */
 
-.handles, .page-links, .forms{
+.handles,
+.contacts,
+.forms {
   display: flex;
   flex-direction: column;
 }

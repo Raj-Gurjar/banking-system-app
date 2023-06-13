@@ -2,8 +2,8 @@
     width: 25%;
     height: 300px;
     /* background-color: aliceblue; */
-    border-radius: 5px;
-    border: 2px solid yellow;
+    border-radius: 10px;
+    border: 2px solid blue;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -15,12 +15,10 @@
 }
 
 .card .service-name{
-    font-family: 'Poppins';
     font-size: 1.6rem;
 }
 
 .card .service-desc{
-    font-family: 'Poppins';
     font-size: 1rem;
     color: #ffe8e85e;
 }
@@ -30,8 +28,6 @@
     height: 2.5rem;
     color: black;
     border-radius: 5px;
-    background: linear-gradient(rgb(181, 213, 255), rgb(68, 202, 255));
-    font-family: 'Poppins';
     font-size: 16px;
     border: none;
     transition: .5s;
@@ -40,7 +36,7 @@
 
 /* HOVER */
 .card button:hover{
-    box-shadow: 0px 0px 25px rgba(137, 202, 255, 0.767);
-    transition: .3s;
+     background-color: rgb(139, 104, 39);
     cursor: pointer;
+
 }

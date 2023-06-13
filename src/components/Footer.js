@@ -1,30 +1,26 @@
 import React from 'react'
 import '../styles/footer.scss';
-import bankLogo from '../images/banklogo-1.png'
-import fbLogo from '../images/facebook.png'
-import instaLogo from '../images/instagram.png'
-import twitterLogo from '../images/twitter.png'
+import bankLogo from '../images/logo2.png'
+// import fbLogo from '../images/facebook.png'
+// import instaLogo from '../images/instagram.png'
+// import twitterLogo from '../images/twitter.png'
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="handles">
-        <img className='main-logo' src={bankLogo} alt="ICON" />
-        <div className="socials">
-          <a href="https://www.facebook.com/thesparksfoundation.info/" target="_blank"><img src={fbLogo} alt="Facebook" /></a>
-          <a href="https://www.instagram.com/thesparksfoundation.info/?hl=en" target="_blank"><img src={instaLogo} alt="Instagram" /></a>
-          <a href="https://twitter.com/hashtag/Thesparksfoundation?src=hashtag_click" target="_blank"><img src={twitterLogo} alt="Twitter" /></a>
-        </div>
+        <img className='main-logo' src={bankLogo} alt='logo' />
+     
         <div className="off-web">
-          <a href="https://internship.thesparksfoundation.info/" target="_blank">Offcial website</a>
+          Address : 123, ABC Road, Mumbai - 400001
         </div>
       </div>
 
-      <div className="page-links">
-        <h2>Pages</h2>
-        <a href="/allCustomers">View customers</a>
-        <a href="/moneyTransfer">Transfer funds</a>
-        <a href="/transactions">Transactions</a>
+      <div className="contacts">
+        <h2>Helplines</h2>
+        <p>Contact No.:+91212121212</p>
+        <p>Email id:help@citybank.com.in</p>
+        
       </div>
 
       <div className="message">
@@ -32,7 +28,8 @@ const Footer = () => {
         <form className='forms' autoComplete='off'>
           <input type="text" name="name" id="name" placeholder='Name' />
           <input type="text" name="email" id="email" placeholder='Email' />
-          <input type="submit" value="Send" />
+          <input type="text" name="message" id="message" placeholder='Message' />
+          <button>Submit</button>
         </form>
       </div>
     </div>

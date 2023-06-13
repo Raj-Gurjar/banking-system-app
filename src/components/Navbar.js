@@ -1,5 +1,5 @@
 import React from 'react'
-import bankLogo from '../images/banklogo-1.png'
+import bankLogo from '../images/logo1.png'
 import '../styles/navbar.scss'
 
 const Navbar = () => {
@@ -8,7 +8,9 @@ const Navbar = () => {
             <div class="container">
                 <div class="row space_btw">
                     <div class="logo">
-                        <img src="mediaaa/mylogo2.png" />
+                        <a href="/">
+                            <img src={bankLogo} alt="logo" />
+                        </a>
                     </div>
 
                     <ul class="menu">

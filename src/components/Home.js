@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Service from '../components/Services';
 import '../styles/home.scss';
 import image from '../images/home-img.webp';
+import banklogo from '../images/logo3.png';
 import { Redirect } from 'react-router-dom';
 
 const Home = () => {
@@ -27,7 +28,9 @@ const Home = () => {
                     <div className="home_txt">
 
                         <p1 className="greetings">Welcome to,</p1>
-                        <h1 className="name">City Bank</h1>
+                        <h1 className="name_logo_bx">
+                            <img src={banklogo} alt="" />
+                        </h1>
                         <p>
                             Where Banking Meets Innovation and Convenience!
                         </p>

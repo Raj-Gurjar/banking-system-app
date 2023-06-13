@@ -7,18 +7,20 @@ navbar {
   width: 100%;
   padding: 5px 15px;
   transition: all 1s ease;
-  margin: 0 auto;
-  background-color: $black-400;
-
+  // margin: 0 auto;
+  background-color: #54bbe7;
+  
   .logo {
     display: flex;
     align-items: center;
+    border: 2px solid blue;
+    border-radius: 10px;
+    box-shadow: $box-shadow-low;
     img {
       height: 30px;
-      width: 70px;
+      width: 50px;
       border-radius: 10px;
 
-      box-shadow: 0 0 15px hsla(0, 0%, 100%, 0.7), 0 2px 4px hsla(0, 0%, 0%, 0.8);
     }
   }
 

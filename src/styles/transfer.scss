@@ -1,14 +1,23 @@
-.box {
-    height: 100vh;
+@import "./variables";
+
+.transfer_sec {
+    //  background-color: red;
+}
+
+.transfer_box {
     display: flex;
     justify-content: center;
-    margin-top: 5rem;
+    padding: 100px 0px;
+
+    h2 {
+        font-family: inherit;
+    }
 }
 
 form {
     width: 400px;
     height: 350px;
-    background-color: #1A1A1A;
+    background-color: rgba(57, 85, 126, 0.617);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -16,18 +25,15 @@ form {
     justify-content: space-evenly;
 }
 
-form h2{
-    font-family: poppins;
-    color: #beffc6;
-}
+
 
 form select {
     /* color: black; */
     width: 16rem;
     height: 2.5rem;
-    font-family: 'Poppins';
     padding-left: 16px;
-    background: #1A1A1A;
+    border-radius: 10px;
+    background: rgb(134, 134, 134);
     font-size: 16px;
 }
 
@@ -35,14 +41,14 @@ form input {
     color: black;
     width: 16rem;
     height: 2.5rem;
-    font-family: 'Poppins';
     padding-left: 16px;
     outline: none;
     font-size: 16px;
+    border-radius: 10px;
 }
 
 .submitBtn {
-    background-color: #006CFA;
+    background-color: #006cfa;
     color: whitesmoke;
     font-size: 15px;
     font-weight: 500;
@@ -50,14 +56,16 @@ form input {
     /* box-shadow: 0px 8px 90px #006cfa; */
     outline: none;
     border: none;
-    transition: .8s;
+    transition: 0.8s;
+
+    &:hover {
+        box-shadow: 0px 8px 40px #10294a;
+        cursor: pointer;
+    }
+    &:active {
+        transform: scale(0.8);
+    }
 }
 
 
-/* HOVER CSS */
 
-.submitBtn:hover{
-    box-shadow: 0px 8px 40px #006cfabf;
-    transition: .8s;
-    cursor: pointer;
-}
