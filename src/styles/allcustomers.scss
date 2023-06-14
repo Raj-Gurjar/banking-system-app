@@ -1,0 +1,55 @@
+
+// Define variables for colors and spacing
+$primaryColor: #007bff;
+$tableBackgroundColor: #4f71c7;
+$cellPadding: 10px;
+
+
+
+
+.customers_sec, .transactions_cls
+{ 
+//  background-color: red;
+    padding: 90px 0px;
+}
+
+.heading
+{
+  margin-bottom: 25px;
+
+  h2
+  {
+    font-size: 1.8rem;
+    font-weight: bolder;
+  }
+}
+// Apply styles to the table component
+table {
+  width: 90%;
+  display: table;
+  margin: 0 auto;
+  vertical-align: center;
+  border-collapse: collapse;
+  background-color: $tableBackgroundColor;
+  // margin-bottom: 90px;
+//   padding: 10px;
+
+  th,
+  td {
+    padding: $cellPadding;
+    text-align: center;
+  }
+
+  th {
+    background-color: $primaryColor;
+    color: #fff;
+  }
+
+  tr:nth-child(even) {
+    background-color: lighten($tableBackgroundColor, 5%);
+  }
+
+  tr:hover {
+    background-color: lighten($tableBackgroundColor, 10%);
+  }
+}
