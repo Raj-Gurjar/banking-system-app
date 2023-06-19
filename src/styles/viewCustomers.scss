@@ -1,24 +1,35 @@
-
 // Define variables for colors and spacing
 $primaryColor: #007bff;
 $tableBackgroundColor: #4f71c7;
 $cellPadding: 10px;
 
+.customers_sec,
+.transactions_cls {
+  //  background-color: red;
+  padding: 90px 0px;
 
+  .add_btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 20px;
+    margin-left: 60px;
+  }
+  .del_btn {
+    padding: 5px 10px;
+    background-color: red;
 
-
-.customers_sec, .transactions_cls
-{ 
-//  background-color: red;
-    padding: 90px 0px;
+    &:hover {
+      background-color: #dd3636;
+      color: rgba(255, 255, 255, 0.68);
+    }
+  }
+ 
 }
 
-.heading
-{
+.heading {
   margin-bottom: 25px;
 
-  h2
-  {
+  h2 {
     font-size: 1.8rem;
     font-weight: bolder;
   }
@@ -32,7 +43,7 @@ table {
   border-collapse: collapse;
   background-color: $tableBackgroundColor;
   // margin-bottom: 90px;
-//   padding: 10px;
+  //   padding: 10px;
 
   th,
   td {

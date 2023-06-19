@@ -4,9 +4,9 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Services from './components/Services';
 import Footer from './components/Footer';
-import AllCustomers from './components/AllCustomers';
-import Transactions from './components/Transactions';
-import TransferFunds from './components/TransferFunds';
+import ViewCustomers from './components/ViewCustomers';
+import TransHistory from './components/TransHistory';
+import MoneyTransfer from './components/MoneyTransfer';
 // import { app, database } from './firebaseConfig';
 
 function App() {
@@ -18,9 +18,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<Services />} />
-          <Route path="/allCustomers" element={<AllCustomers />} />
-          <Route path="/transactions" element={<Transactions />} />
-          <Route path="/moneyTransfer" element={<TransferFunds />} />
+          <Route path="/allCustomers" element={<ViewCustomers />} />
+          <Route path="/transactions" element={<TransHistory />} />
+          <Route path="/moneyTransfer" element={<MoneyTransfer />} />
         </Routes>
         <Footer />
       </div>

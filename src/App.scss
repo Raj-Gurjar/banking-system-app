@@ -78,6 +78,27 @@ section
 /*?------------------- Adjustments -e -------------------- */
 
 /*?-------------------   Buttons -s   -------------------- */
+.popup,.trans_error,.delete-popup,
+.add-popup {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  padding: 10px;
+  background-color: #ff0000; // Green color
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  p {
+    margin: 0;
+  }
+}
+.add-popup {
+  background-color: #00ff00;
+}
+
 
 button {
   background-color: $accent-color;
@@ -91,6 +112,7 @@ button {
   padding: auto;
   z-index: 1;
   transition: all 0.25s ease;
+  border-radius: 10px;
 
   a {
     color: $bg-light;

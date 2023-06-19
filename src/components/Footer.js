@@ -1,9 +1,7 @@
 import React from 'react'
 import '../styles/footer.scss';
 import bankLogo from '../images/logo2.png'
-// import fbLogo from '../images/facebook.png'
-// import instaLogo from '../images/instagram.png'
-// import twitterLogo from '../images/twitter.png'
+
 
 const Footer = () => {
   return (

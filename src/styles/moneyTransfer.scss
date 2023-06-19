@@ -2,6 +2,16 @@
 
 .transfer_sec {
     //  background-color: red;
+
+    .popup {
+        background-color: rgb(197, 196, 196);
+        color: red;
+    }
+
+    .popup p.success {
+        // background-color: green;
+        color: green;
+    }
 }
 
 .transfer_box {
@@ -17,34 +27,33 @@
 form {
     width: 400px;
     height: 350px;
-    background-color: rgba(57, 85, 126, 0.617);
+    background-color: #7878cc;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-}
 
+    select {
+        /* color: black; */
+        width: 16rem;
+        height: 2.5rem;
+        padding-left: 16px;
+        border-radius: 10px;
+        background: rgb(160, 159, 159);
+        font-size: 16px;
+        color: white;
+    }
 
-
-form select {
-    /* color: black; */
-    width: 16rem;
-    height: 2.5rem;
-    padding-left: 16px;
-    border-radius: 10px;
-    background: rgb(134, 134, 134);
-    font-size: 16px;
-}
-
-form input {
-    color: black;
-    width: 16rem;
-    height: 2.5rem;
-    padding-left: 16px;
-    outline: none;
-    font-size: 16px;
-    border-radius: 10px;
+    input {
+        color: black;
+        width: 16rem;
+        height: 2.5rem;
+        padding-left: 16px;
+        outline: none;
+        font-size: 16px;
+        border-radius: 10px;
+    }
 }
 
 .submitBtn {
@@ -66,6 +75,3 @@ form input {
         transform: scale(0.8);
     }
 }
-
-
-

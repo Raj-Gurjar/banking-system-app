@@ -4,26 +4,26 @@ import '../styles/navbar.scss'
 
 const Navbar = () => {
     return (
-        <navbar>
-            <div class="container">
-                <div class="row space_btw">
-                    <div class="logo">
+        <nav>
+            <div className="container">
+                <div className="row space_btw">
+                    <div className="logo">
                         <a href="/">
                             <img src={bankLogo} alt="logo" />
                         </a>
                     </div>
 
-                    <ul class="menu">
+                    <ul className="menu">
                         <li><a href='/'>Home</a></li>
                         <li><a href='/allCustomers'>View all accounts</a></li>
-                        <li><a href='/moneyTransfer'>Transfer funds</a></li>
+                        <li><a href='/moneyTransfer'>Money Transfer</a></li>
                         <li><a href='/transactions'>Transactions</a></li>
                     </ul>
 
                 </div>
 
             </div>
-        </navbar>
+        </nav>
 
     )
 }
