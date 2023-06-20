@@ -1,9 +1,11 @@
-import React from 'react'
-import '../styles/service.scss'
+import React from 'react';
+import '../styles/service.scss';
+
+
 
 const Service = (props) => {
   return (
-    <div className="card">
+    <div data-aos="zoom-in-right" data-aos-delay="0" className="card">
       <img src={props.image} alt="Customer img" />
       <div className="service-name">{props.title}</div>
       <div className="service-desc">{props.desc}</div>

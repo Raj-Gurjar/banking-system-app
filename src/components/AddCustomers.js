@@ -52,7 +52,7 @@ const AddCustomer = ({ onAddCustomer }) => {
       newCustomer.emailiD.trim() === '' ||
       newCustomer.currBal.trim() === ''
     ) {
-      setFormError('Please fill in all fields.');
+      setFormError('❗Please fill in all fields.');
       return false;
     }
 
@@ -89,7 +89,7 @@ const AddCustomer = ({ onAddCustomer }) => {
         name='currBal'
         value={newCustomer.currBal}
         onChange={handleInputChange}
-        placeholder='Current Balance'
+        placeholder='Add Balance (in Rs.)'
       />
       <button onClick={addCustomer}>Add Customer</button>
       {formError && <p className='error'>{formError}</p>}

@@ -4,7 +4,19 @@ import { database } from '../firebaseConfig';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import AddCustomer from './AddCustomers';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
+
 const ViewCustomers = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Set the animation duration to 1200ms (1.2 seconds)
+    });
+  }, []);
+
   const [customersList, setCustomersList] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [buttonText, setButtonText] = useState('Add Customer');
@@ -78,11 +90,11 @@ const ViewCustomers = () => {
 
   return (
     <section className='customers_sec'>
-      <div className='heading row justify_content_cntr'>
-        <h2>All Customers Information</h2>
+      <div className='heading row justify_content_cntr' data-aos="fade-up" data-aos-delay="0">
+        <h2>All Customers' Information</h2>
       </div>
 
-      <button className='add_btn' onClick={toggleForm}>{buttonText}</button>
+      <button data-aos="fade-right" data-aos-delay="100" className='add_btn' onClick={toggleForm}>{buttonText}</button>
 
       {showForm && (
         <div className='add-customer-popup'>
@@ -92,17 +104,17 @@ const ViewCustomers = () => {
 
       {showDeletePopup && (
         <div className='delete-popup'>
-          <p>Customer deleted successfully!</p>
+          <p>✔️ Customer deleted successfully!</p>
         </div>
       )}
 
       {showAddPopup && (
         <div className='add-popup'>
-          <p>Customer added successfully!</p>
+          <p>✔️ Customer added successfully!</p>
         </div>
       )}
 
-      <table>
+      <table data-aos="zoom-in" data-aos-delay="0">
         <thead>
           <tr>
             <th>S.No.</th>
@@ -113,7 +125,7 @@ const ViewCustomers = () => {
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-aos="fade-up" data-aos-delay="100">
           {customersList.map((customer, index) => (
             <tr key={customer.id} className='values'>
               <td>{index + 1}</td>

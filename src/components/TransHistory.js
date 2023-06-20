@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect} from 'react';
 import { collection, getDocs } from 'firebase/firestore'
 import { database } from '../firebaseConfig';
 import History from './History';
-import '../styles/transHistory.scss'
+import '../styles/transHistory.scss';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const TransHistory = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Set the animation duration to 1200ms (1.2 seconds)
+    });
+  }, []);
 
   const data = collection(database, 'transactions');
 
@@ -22,8 +30,8 @@ const TransHistory = () => {
 
   return (
     <section className="transactions_cls">
-      <div className="heading row justify_content_cntr">
-        <h2>All Transactions Information</h2>
+      <div className="heading row justify_content_cntr" data-aos="fade-up" data-aos-delay="100">
+        <h2>All Transactions' Information</h2>
       </div>
 
       <div className="history-box">

@@ -4,7 +4,7 @@ import "../styles/transHistory.scss";
 function Customer({i,from,to,amount,status}) {
 
   return (
-    <div key={i+1}  className="his1">
+    <div key={i+1}  className="his1" data-aos="zoom-in" data-aos-delay="100">
       <h3>Sender : {from}</h3>
       <h3>Reciever :  {to}</h3>
       <h3>Amount-Transferred : Rs.{amount}</h3>

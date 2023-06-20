@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { collection, getDocs, doc, updateDoc, addDoc } from 'firebase/firestore';
 import { database } from '../firebaseConfig';
 import '../styles/moneyTransfer.scss';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const MoneyTransfer = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Set the animation duration to 1200ms (1.2 seconds)
+    });
+  }, []);
+  
   const data = collection(database, 'customers');
   const transactions = collection(database, 'transactions');
 
@@ -11,6 +20,7 @@ const MoneyTransfer = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState('');
 
+  
   const getCustomers = async () => {
     const res = await getDocs(data);
     const done = res.docs.map((item) => {
@@ -101,12 +111,14 @@ const MoneyTransfer = () => {
 
       e.preventDefault();
     }
+
+    
   };
 
   return (
     <section className="transfer_sec">
       <div className="container">
-        <div className="transfer_box">
+        <div className="transfer_box" data-aos="fade-up" data-aos-delay="100">
           <form onSubmit={transferFunds}>
             <h2>Transfer Money</h2>
             <select name="customers" id="customers1" placeholder="Debited from">
