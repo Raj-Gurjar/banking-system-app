@@ -1,42 +1,48 @@
 .card {
     width: 25%;
     height: 300px;
-    /* background-color: aliceblue; */
-    border-radius: 10px;
-    border: 2px solid blue;
     display: flex;
+    padding: 10px;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    
 }
 
-.card img{
+.card img {
     width: 70px;
 }
 
-.card .service-name{
+.card .service-name {
     font-size: 1.6rem;
 }
 
-.card .service-desc{
+.card .service-desc {
     font-size: 1rem;
     color: #ffe8e85e;
 }
 
-.card button{
+.card button {
     width: 10rem;
     height: 2.5rem;
     color: black;
     border-radius: 5px;
     font-size: 16px;
     border: none;
-    transition: .5s;
+    transition: 0.5s;
     font-weight: 500;
 }
 
 /* HOVER */
-.card button:hover{
-     background-color: rgb(139, 104, 39);
+.card button:hover {
+    background-color: rgb(139, 104, 39);
     cursor: pointer;
-
 }

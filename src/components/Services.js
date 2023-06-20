@@ -2,12 +2,12 @@ import React from 'react'
 import Service from './Service'
 import '../styles/services.scss'
 import customerImg from '../images/customers.png';
-import transactionsImg from '../images/transactions.png';
+import history from '../images/history.png';
 import transferImg from '../images/transfer.png'
 
 const Services = () => {
   return (
-    <div className='services-boxes'>
+    <div className='services-box'>
       <div className="main-title">
         Services
       </div>
@@ -16,7 +16,7 @@ const Services = () => {
 
         <Service image={transferImg} title="Transfer Money" link="/moneyTransfer" desc="Money transfer can be done" btn="Transfer" />
 
-        <Service image={transactionsImg} title="Ledger" link="/transactions" desc="All transactions are displayed" btn="View transactions" />
+        <Service image={history} title="Transfer History" link="/transactions" desc="All transactions are displayed" btn="View transactions" />
       </div>
     </div>
   )

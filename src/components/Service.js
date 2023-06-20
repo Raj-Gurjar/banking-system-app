@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styles/service.scss'
-import customer from '../images/customers.png';
 
 const Service = (props) => {
   return (

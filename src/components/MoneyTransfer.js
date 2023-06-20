@@ -110,24 +110,27 @@ const MoneyTransfer = () => {
           <form onSubmit={transferFunds}>
             <h2>Transfer Money</h2>
             <select name="customers" id="customers1" placeholder="Debited from">
+              <option value="">Debit from</option>
               {done.map((item, i) => (
                 <option key={i} value={item.cusName}>
-                  {item.cusName} (Rs. {item.currBal})
+                  {item.cusName} (Aval. Bal ₹{item.currBal})
                 </option>
               ))}
             </select>
 
             <select name="customers" id="customers2" placeholder="Credited to">
+              <option value="">Credit to </option>
 
               {done.map((item, i) => (
 
                 <option key={i} value={item.cusName} >
-                  {item.cusName} (Rs. {item.currBal})
+                  {item.cusName} (Aval. Bal ₹{item.currBal})
                 </option>
               ))}
             </select>
-
-            <input type="number" id="amt" className="amount" placeholder="Enter Amount" required />
+      
+            <input type="number" id="amt" className="amount" placeholder="Enter Amount (in ₹)" required />
+   
             <input type="submit" className="submitBtn" value="Submit" />
           </form>
         </div>

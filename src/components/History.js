@@ -7,11 +7,11 @@ function Customer({i,from,to,amount,status}) {
     <div key={i+1}  className="cust">
       <h3>Sender : {from}</h3>
       <h3>Reciever :  {to}</h3>
-      <h3>Amount : Rs.{amount}</h3>
-      <h3>Status : {(status)}</h3>
+      <h3>Amount-Transfered : Rs.{amount}</h3>
+      <h3>Status : {status}</h3>
       <br/>
     </div>
   )
 }
 
-export default Customer
+export default Customer;

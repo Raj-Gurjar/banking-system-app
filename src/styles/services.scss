@@ -1,7 +1,8 @@
 
 
-.services-boxes{
-    /* background-color: coral; */
+.services-box{
+  
+
 }
 
 .main-title{
@@ -16,4 +17,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 3rem;
+    background-color:#7878CC ;
+    border-radius: 10px;
+    padding: 40px;
 }
