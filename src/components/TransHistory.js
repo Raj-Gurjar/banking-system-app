@@ -6,6 +6,19 @@ import '../styles/transHistory.scss'
 
 const TransHistory = () => {
 
+  const data = collection(database, 'transactions');
+
+  const [done, setDone] = useState([])
+
+  const getCustomers = async () => {
+    const res = await getDocs(data);
+    const done = res.docs.map((item) => {
+      return { ...item.data() }
+    });
+    setDone(done)
+  }
+
+  getCustomers();
 
   return (
     <section className="transactions_cls">
@@ -15,28 +28,19 @@ const TransHistory = () => {
 
       <div className="history-box">
 
-        <div className="his1">
-          <h3>Sender : Raj</h3>
-          <h3>Reciever :  vikas</h3>
-          <h3>Amount-Transferred : Rs.333</h3>
-          <h3>Status : success</h3>
-        </div>
 
-        <div className="his1">
-          <h3>Sender : raj</h3>
-          <h3>Reciever :  vikas</h3>
-          <h3>Amount : Rs.333</h3>
-          <h3>Status : success</h3>
-        </div>
-
-        <div className="his1">
-          <h3>Sender : raj</h3>
-          <h3>Reciever :  vikas</h3>
-          <h3>Amount : Rs.333</h3>
-          <h3>Status : success</h3>
-        </div>
-
+        {done.map((item, i) => {
+          return (
+              <History
+                key={i + 1} from={item.from}
+                to={item.to}
+                amount={item.Amount_transfered}
+              />
+          )
+        })}
       </div>
+
+
 
     </section>
   );

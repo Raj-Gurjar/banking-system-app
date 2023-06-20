@@ -6,9 +6,11 @@ nav {
   z-index: 999;
   width: 100%;
   padding: 5px 15px;
+  padding-top: 8px;
   transition: all 1s ease;
   // margin: 0 auto;
-  background-color: #54bbe7;
+  background-color: #6dbfe8;
+  box-shadow: $box-shadow-low;
   
   .logo {
     display: flex;
@@ -37,11 +39,13 @@ nav {
 
     li {
       a {
-        font-size: 15px;
-        font-weight: 900;
+        font-size: 16px;
+        font-weight: 700;
         padding: 8px 16px;
         text-transform: capitalize;
-        font-family: sans-serif;
+        // font-family: sans-serif;
+        font-family: "Montserrat", "Arial", sans-serif;
+
 
         &:hover {
           box-shadow: inset 0 -5px 20px hsla(0, 0%, 0%, 0.4), /* top light */ inset 0 5px 20px hsla(0, 0%, 100%, 0.4),
