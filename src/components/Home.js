@@ -48,8 +48,6 @@ const Home = () => {
                             </div>
                            
 
-
-
                         </div>
                     </div>
                     <div data-aos="fade-up" data-aos-delay="0" className="home_img">
@@ -58,6 +56,8 @@ const Home = () => {
                 </div>
             </div>
             <Service />
+
+            
         </section>
     );
 };
