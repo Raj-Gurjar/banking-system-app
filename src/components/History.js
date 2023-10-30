@@ -1,6 +1,7 @@
 import React from 'react'
 import "../styles/transHistory.scss";
 
+
 function Customer({i,from,to,amount,status}) {
 
   return (

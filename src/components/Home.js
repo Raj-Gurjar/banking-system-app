@@ -23,6 +23,7 @@ const Home = () => {
         <section className="home_cls section_padding">
             <div className="container">
                 <div className="row align_cntr">
+
                     <div className="home_txt">
 
                         <p1 className="greetings">Welcome to,</p1>
@@ -50,7 +51,8 @@ const Home = () => {
 
                         </div>
                     </div>
-                    <div data-aos="fade-up" data-aos-delay="0" className="home_img">
+
+                    <div  className="home_img">
                         <img src={home_image} alt="home-img" />
                     </div>
                 </div>

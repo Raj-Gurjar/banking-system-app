@@ -94,7 +94,12 @@ const ViewCustomers = () => {
         <h2>All Customers' Information</h2>
       </div>
 
-      <button data-aos="fade-right" data-aos-delay="100" className='add_btn' onClick={toggleForm}>{buttonText}</button>
+      <div className="btn_cntr">
+        <button data-aos="fade-right" data-aos-delay="100" className='add_btn' onClick={toggleForm}>
+          {buttonText}
+        </button>
+      </div>
+
 
       {showForm && (
         <div className='add-customer-popup'>
@@ -134,7 +139,7 @@ const ViewCustomers = () => {
               <td>{customer.emailiD}</td>
               <td>{customer.currBal}</td>
               <td>
-                <button  className='del_btn' onClick={() => handleDeleteCustomer(customer.id)}>
+                <button className='del_btn' onClick={() => handleDeleteCustomer(customer.id)}>
                   Delete
                 </button>
               </td>

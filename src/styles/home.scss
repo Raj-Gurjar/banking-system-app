@@ -9,8 +9,8 @@
   
     .home_txt,
     .home_img {
-        // flex: 0 0 75%;
-        // max-width: 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
         padding: 0 5px;
 
         p1 {
@@ -21,6 +21,7 @@
 }
 
 .home_txt {
+    background-color: red;
     line-height: 4rem;
 
     .greetings {
@@ -84,8 +85,9 @@
 /*? ------------ Home img -s ---------------*/
 
 .home_img {
-    /* background-color: #00ff11; */
-    margin-left: 120px;
+    
+    background-color: green;
+    // margin-left: 120px;
     width: 400px;
     height: 400px;
     img {

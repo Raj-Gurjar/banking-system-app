@@ -1,31 +1,59 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import bankLogo from '../images/logo1.png'
 import '../styles/navbar.scss'
 
 const Navbar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    useEffect(() => {
+        setCurrentPath(window.location.pathname);
+    }, []);
+
     return (
         <nav>
-            <div className="container">
-                <div className="row space_btw">
-                    <div className="logo">
-                        <a href="/">
-                            <img src={bankLogo} alt="logo" />
-                        </a>
-                    </div>
-
-                    <ul className="menu">
-                        <li><a href='/'>Home</a></li>
-                        <li><a href='/allCustomers'>View all accounts</a></li>
-                        <li><a href='/moneyTransfer'>Money Transfer</a></li>
-                        <li><a href='/transactions'>Transactions</a></li>
-                    </ul>
-
+            <div className="container1">
+                <div className="logo">
+                    <a href="/">
+                        <img src={bankLogo} alt="" />
+                    </a>
                 </div>
-
+                <div className="menu-toggle" onClick={toggleMenu}>
+                    <div className={`menu-icon ${menuOpen ? 'open' : ''}`}>
+                        <div className="bar1"></div>
+                        <div className="bar2"></div>
+                        <div className="bar3"></div>
+                    </div>
+                </div>
+                <ul className={`menu ${menuOpen ? 'open' : ''}`}>
+                    <li>
+                        <a href="/" className={currentPath === '/' ? 'active' : ''}>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/allCustomers" className={currentPath === '/allCustomers' ? 'active' : ''}>
+                            View all accounts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/moneyTransfer" className={currentPath === '/moneyTransfer' ? 'active' : ''}>
+                            Money Transfer
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/transactions" className={currentPath === '/transactions' ? 'active' : ''}>
+                            Transactions
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
-
-    )
-}
+    );
+};
 
 export default Navbar;

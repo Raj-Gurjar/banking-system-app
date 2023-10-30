@@ -8,12 +8,18 @@ $cellPadding: 10px;
   //  background-color: red;
   padding: 90px 0px;
 
-  .add_btn {
-    font-size: 16px;
-    padding: 10px 20px;
+  .btn_cntr {
+    display: flex;
+    // background-color: red;
+    justify-content: center;
     margin: 20px;
-    margin-left: 60px;
+
+    .add_btn {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
   }
+
   .del_btn {
     padding: 5px 10px;
     background-color: red;
@@ -23,7 +29,6 @@ $cellPadding: 10px;
       color: rgba(255, 255, 255, 0.68);
     }
   }
- 
 }
 
 .heading {
@@ -39,6 +44,7 @@ table {
   width: 90%;
   display: table;
   margin: 0 auto;
+
   vertical-align: center;
   border-collapse: collapse;
   background-color: $tableBackgroundColor;
@@ -48,7 +54,7 @@ table {
   th,
   td {
     padding: $cellPadding;
-    text-align: center;
+    text-align: left;
   }
 
   th {
@@ -62,5 +68,37 @@ table {
 
   tr:hover {
     background-color: lighten($tableBackgroundColor, 10%);
+  }
+}
+
+@media (max-width: 500px) {
+  .add_btn {
+  }
+  .del_btn {
+    padding: 5px 10px;
+    background-color: red;
+
+    &:hover {
+      background-color: #dd3636;
+      color: rgba(255, 255, 255, 0.68);
+    }
+  }
+
+  table {
+    width: 90%;
+    display: table;
+    margin: 0 auto;
+    overflow-x: scroll;
+    vertical-align: center;
+    border-collapse: collapse;
+    background-color: red;
+    // margin-bottom: 90px;
+    //   padding: 10px;
+
+    th,
+    td {
+      padding: $cellPadding;
+      text-align: left;
+    }
   }
 }
