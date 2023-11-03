@@ -118,35 +118,36 @@ const ViewCustomers = () => {
           <p>✔️ Customer added successfully!</p>
         </div>
       )}
-
-      <table data-aos="zoom-in" data-aos-delay="0">
-        <thead>
-          <tr>
-            <th>S.No.</th>
-            <th>Name</th>
-            <th>Account Number</th>
-            <th>Email ID</th>
-            <th>Current Balance (in Rs.)</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody data-aos="fade-up" data-aos-delay="100">
-          {customersList.map((customer, index) => (
-            <tr key={customer.id} className='values'>
-              <td>{index + 1}</td>
-              <td>{customer.cusName}</td>
-              <td>{customer.accNo}</td>
-              <td>{customer.emailiD}</td>
-              <td>{customer.currBal}</td>
-              <td>
-                <button className='del_btn' onClick={() => handleDeleteCustomer(customer.id)}>
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="tbl-cntr">
+        <table data-aos="zoom-in" data-aos-delay="0">
+          <thead>
+            <tr>
+              <th>S.No.</th>
+              <th>Name</th>
+              <th>Account Number</th>
+              <th>Email ID</th>
+              <th>Current Balance (in Rs.)</th>
+              <th>Action</th>
+            </tr> 
+          </thead>
+          <tbody data-aos="fade-up" data-aos-delay="100">
+            {customersList.map((customer, index) => (
+              <tr key={customer.id} className='values'>
+                <td>{index + 1}</td>
+                <td>{customer.cusName}</td>
+                <td>{customer.accNo}</td>
+                <td>{customer.emailiD}</td>
+                <td>{customer.currBal}</td>
+                <td>
+                  <button className='del_btn' onClick={() => handleDeleteCustomer(customer.id)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 };

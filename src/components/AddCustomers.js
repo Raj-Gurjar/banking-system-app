@@ -61,39 +61,43 @@ const AddCustomer = ({ onAddCustomer }) => {
   };
 
   return (
-    <div className='new-customer-form'>
-      <h3>New Customer Details</h3>
-      <input
-        type='text'
-        name='cusName'
-        value={newCustomer.cusName}
-        onChange={handleInputChange}
-        placeholder='Name'
-      />
-      <input
-        type='text'
-        name='accNo'
-        value={newCustomer.accNo}
-        onChange={handleInputChange}
-        placeholder='Account Number'
-      />
-      <input
-        type='text'
-        name='emailiD'
-        value={newCustomer.emailiD}
-        onChange={handleInputChange}
-        placeholder='Email ID'
-      />
-      <input
-        type='text'
-        name='currBal'
-        value={newCustomer.currBal}
-        onChange={handleInputChange}
-        placeholder='Add Balance (in Rs.)'
-      />
-      <button onClick={addCustomer}>Add Customer</button>
-      {formError && <p className='error'>{formError}</p>}
-    </div>
+    <section className='addCustomer_cls'>
+
+
+      <div className='new-customer-form'>
+        <h3>New Customer Details</h3>
+        <input
+          type='text'
+          name='cusName'
+          value={newCustomer.cusName}
+          onChange={handleInputChange}
+          placeholder='Name'
+        />
+        <input
+          type='text'
+          name='accNo'
+          value={newCustomer.accNo}
+          onChange={handleInputChange}
+          placeholder='Account Number'
+        />
+        <input
+          type='text'
+          name='emailiD'
+          value={newCustomer.emailiD}
+          onChange={handleInputChange}
+          placeholder='Email ID'
+        />
+        <input
+          type='text'
+          name='currBal'
+          value={newCustomer.currBal}
+          onChange={handleInputChange}
+          placeholder='Add Balance (in Rs.)'
+        />
+        <button onClick={addCustomer}>Add Customer</button>
+        {formError && <p className='error'>{formError}</p>}
+      </div>
+    </section>
   );
 };
 

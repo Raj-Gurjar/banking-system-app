@@ -1,78 +1,115 @@
-.footer {
-
+.footer_cls {
   background-color: black;
-  
+
   // height: 60vh;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  // padding-top: 20px;
+  // padding-bottom: 30px;
+}
+
+.footer_cntr {
   display: flex;
-  justify-content: space-around;
-}
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 
-.handles {
-  width: 200px;
-  /* background-color: aqua; */
-}
 
-.contacts {
-  width: 200px;
-  line-height: 2rem;
-}
+  padding: 20px;
+  row-gap: 20px;
+  column-gap: 150px;
 
-.message {
-  width: 300px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  h2 {
-    margin-bottom: 10px;
+  .handles {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // background-color: red;
+    .main-logo {
+      width: 8rem;
+      // margin-left: 32px;
+    }
+    .off-web {
+      margin-top: 20px;
+      // margin-left: 20px;
+    }
   }
 
-  .forms {
-    background-color: #7878cc;
+  .contacts {
+    // background-color: blue;
+    display: flex;
+    // justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 10px;
-    input {
-      width: 14rem;
-      border: none;
-      border-radius: 10px;
-      font-family: inherit;
-      padding: 10px;
-      // margin: 5px;
+    // width: 200px;
+    line-height: 2rem;
+  }
+
+  .message {
+    // background-color: green;
+
+    display: flex;
+
+    // margin: 10px;
+    align-items: center;
+    flex-direction: column;
+
+    h2
+    {
+      margin-bottom: 10px;
     }
 
-    input:nth-child(3) {
-      height: 70px;
-    }
-
-    button {
-      padding: 10px 20px;
+    .forms {
+      height: 300px;
+      padding: 20px;
+      background-color: #7878cc;
       border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
+      textarea,input {
+        // width: 14rem;
+        border: none;
+        border-radius: 10px;
+        font-family: inherit;
+        padding: 10px 10px;
+        width: 250px;
+        font-size: 15px;
+        color: black;
+        resize: none;
+        // margin: 5px;
+      }
+
+      input:nth-child(3) {
+        height: 70px;
+      }
+
+      button {
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
     }
   }
 }
 
-.off-web {
-  margin-top: 20px;
-  margin-left: 20px;
-}
+@media (max-width: 500px) {
+  .footer_cntr {
+    justify-content: center;
+    row-gap:40px;
+    column-gap: 150px;
 
-/* STYLING IMAGES */
+    .handles {
+    }
 
-.handles .main-logo {
-  width: 8rem;
-  margin-left: 32px;
-}
+    .contacts {
+    }
 
-.socials img {
-  width: 30px;
-}
-
-/* COMMON STYLING */
-
-.handles,
-.contacts,
-.forms {
-  display: flex;
-  flex-direction: column;
+    .message {
+      .forms {
+        input {
+        }
+      }
+    }
+  }
 }

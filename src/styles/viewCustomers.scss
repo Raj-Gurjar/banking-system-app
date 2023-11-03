@@ -31,15 +31,16 @@ $cellPadding: 10px;
   }
 }
 
-.heading {
-  margin-bottom: 25px;
-
-  h2 {
-    font-size: 1.8rem;
-    font-weight: bolder;
-  }
+h2 {
+  font-size: 1.8rem;
+  font-weight: bolder;
 }
+
 // Apply styles to the table component
+.tbl-cntr {
+  overflow-x: auto;
+  margin: 10px;
+}
 table {
   width: 90%;
   display: table;
@@ -71,34 +72,34 @@ table {
   }
 }
 
-@media (max-width: 500px) {
-  .add_btn {
-  }
-  .del_btn {
-    padding: 5px 10px;
-    background-color: red;
+// @media (max-width: 500px) {
+//   .add_btn {
+//   }
+//   .del_btn {
+//     padding: 5px 10px;
+//     background-color: red;
 
-    &:hover {
-      background-color: #dd3636;
-      color: rgba(255, 255, 255, 0.68);
-    }
-  }
+//     &:hover {
+//       background-color: #dd3636;
+//       color: rgba(255, 255, 255, 0.68);
+//     }
+//   }
 
-  table {
-    width: 90%;
-    display: table;
-    margin: 0 auto;
-    overflow-x: scroll;
-    vertical-align: center;
-    border-collapse: collapse;
-    background-color: red;
-    // margin-bottom: 90px;
-    //   padding: 10px;
+//   table {
+//     width: 90%;
+//     display: table;
+//     margin: 0 auto;
+//     overflow-x: scroll;
+//     vertical-align: center;
+//     border-collapse: collapse;
+//     background-color: red;
+//     // margin-bottom: 90px;
+//     //   padding: 10px;
 
-    th,
-    td {
-      padding: $cellPadding;
-      text-align: left;
-    }
-  }
-}
+//     th,
+//     td {
+//       padding: $cellPadding;
+//       text-align: left;
+//     }
+//   }
+// }
