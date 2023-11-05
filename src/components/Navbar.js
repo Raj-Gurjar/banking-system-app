@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { a } from 'react-router-dom';
 import bankLogo from '../images/logo1.png'
 import '../styles/navbar.scss'
 
@@ -50,6 +51,11 @@ const Navbar = () => {
                             Transactions
                         </a>
                     </li>
+                    {/* <li>
+                        <a href="/signIn" className={currentPath === '/signIn' ? 'active' : ''}>
+                            SignIn
+                        </a>
+                    </li> */}
                 </ul>
             </div>
         </nav>

@@ -7,12 +7,13 @@ import Footer from './components/Footer';
 import ViewCustomers from './components/ViewCustomers';
 import TransHistory from './components/TransHistory';
 import MoneyTransfer from './components/MoneyTransfer';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 // import { app, database } from './firebaseConfig';
 
 function App() {
   return (
     <BrowserRouter>
-
       <Navbar />
       <div className="App">
         <Routes>
@@ -21,6 +22,8 @@ function App() {
           <Route path="/allCustomers" element={<ViewCustomers />} />
           <Route path="/transactions" element={<TransHistory />} />
           <Route path="/moneyTransfer" element={<MoneyTransfer />} />
+          {/* <Route path="/signIn" element={<SignIn />} />
+          <Route path="/signUp" element={<SignUp />} /> */}
         </Routes>
         <Footer />
       </div>
