@@ -6,6 +6,7 @@ import bankLogo from '../images/logo2.png'
 const Footer = () => {
   return (
     <div className="footer_cls">
+
       <div className="footer_cntr">
 
 
@@ -31,10 +32,12 @@ const Footer = () => {
             <input type="text" name="email" id="email" placeholder='Email' required />
             {/* <input type="text" name="message" id="message"  /> */}
             <textarea rows="4" cols="10" name="comment" form="usrform" placeholder='Message' required>
-             </textarea>
+            </textarea>
             <button>Submit</button>
           </form>
         </div>
+
+        <h4>! This is just a Demo Website (City Bank is not real)</h4>
       </div>
     </div>
   )

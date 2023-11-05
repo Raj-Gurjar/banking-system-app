@@ -1,44 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/viewCustomers.scss';
 import { database } from '../firebaseConfig';
-import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc, doc, query, orderBy, onSnapshot } from 'firebase/firestore';
 import AddCustomer from './AddCustomers';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
-
 const ViewCustomers = () => {
-
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Set the animation duration to 1200ms (1.2 seconds)
+      duration: 1000,
     });
   }, []);
 
   const [customersList, setCustomersList] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [buttonText, setButtonText] = useState('Add Customer');
-  const [showDeletePopup, setShowDeletePopup] = useState(false); // Track whether the delete popup should be shown
-  const [showAddPopup, setShowAddPopup] = useState(false); // Track whether the add popup should be shown
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [showAddPopup, setShowAddPopup] = useState(false);
 
   useEffect(() => {
-    const fetchCustomers = async () => {
-      try {
-        const customersRef = collection(database, 'customers');
-        const querySnapshot = await getDocs(customersRef);
-        const customersData = querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setCustomersList(customersData);
-      } catch (error) {
-        console.error('Error fetching customers:', error);
-      }
-    };
+    const customersRef = collection(database, 'customers');
+    const customersQuery = query(customersRef, orderBy('timestamp', 'desc'));
 
-    fetchCustomers();
+    // Create a real-time listener
+    const unsubscribe = onSnapshot(customersQuery, (querySnapshot) => {
+      const customersData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setCustomersList(customersData);
+    });
+
+    return () => {
+      // Unsubscribe from the real-time listener when the component unmounts
+      unsubscribe();
+    };
   }, []);
 
   const toggleForm = () => {
@@ -47,15 +45,6 @@ const ViewCustomers = () => {
   };
 
   const handleAddCustomer = async () => {
-    // Fetch the updated customers data
-    const customersRef = collection(database, 'customers');
-    const querySnapshot = await getDocs(customersRef);
-    const customersData = querySnapshot.docs.map((doc) => ({
-      ...doc.data(),
-      id: doc.id,
-    }));
-    setCustomersList(customersData);
-
     // Show the add popup
     setShowAddPopup(true);
 
@@ -69,12 +58,6 @@ const ViewCustomers = () => {
     try {
       const customerDocRef = doc(database, 'customers', customerId);
       await deleteDoc(customerDocRef);
-
-      // Update the customers list after deletion
-      const updatedCustomers = customersList.filter(
-        (customer) => customer.id !== customerId
-      );
-      setCustomersList(updatedCustomers);
 
       // Show the delete popup
       setShowDeletePopup(true);
@@ -100,7 +83,6 @@ const ViewCustomers = () => {
         </button>
       </div>
 
-
       {showForm && (
         <div className='add-customer-popup'>
           <AddCustomer onAddCustomer={handleAddCustomer} />
@@ -118,6 +100,7 @@ const ViewCustomers = () => {
           <p>✔️ Customer added successfully!</p>
         </div>
       )}
+
       <div className="tbl-cntr">
         <table data-aos="zoom-in" data-aos-delay="0">
           <thead>
@@ -127,8 +110,9 @@ const ViewCustomers = () => {
               <th>Account Number</th>
               <th>Email ID</th>
               <th>Current Balance (in Rs.)</th>
+              <th>Time Added</th>
               <th>Action</th>
-            </tr> 
+            </tr>
           </thead>
           <tbody data-aos="fade-up" data-aos-delay="100">
             {customersList.map((customer, index) => (
@@ -138,6 +122,9 @@ const ViewCustomers = () => {
                 <td>{customer.accNo}</td>
                 <td>{customer.emailiD}</td>
                 <td>{customer.currBal}</td>
+                <td>
+                  {customer.timestamp ? new Date(customer.timestamp.toDate()).toLocaleString() : 'N/A'}
+                </td>
                 <td>
                   <button className='del_btn' onClick={() => handleDeleteCustomer(customer.id)}>
                     Delete

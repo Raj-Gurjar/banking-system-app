@@ -31,8 +31,9 @@ const Home = () => {
                         <img src={banklogo} alt="" />
                     </div>
                     <p>
-                        Where Banking Meets Innovation and Convenience!
+                        "Where Banking Meets Innovation and Convenience!"
                     </p>
+                    <h3>This is a website for Employees of City Bank (Check services below).</h3>
 
                     <div className="features">
                         <div data-aos="fade-up-right" data-aos-delay="20" className="ft">

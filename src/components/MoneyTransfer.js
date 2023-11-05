@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, doc, updateDoc, addDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, getDocs, doc, updateDoc } from 'firebase/firestore';
 import { database } from '../firebaseConfig';
 import '../styles/moneyTransfer.scss';
 import AOS from 'aos';
@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 const MoneyTransfer = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Set the animation duration to 1200ms (1.2 seconds)
+      duration: 1000,
     });
   }, []);
 
@@ -29,18 +29,10 @@ const MoneyTransfer = () => {
 
   getCustomers();
 
-  const getAmount = (name, arr) => {
+  const getAccountBalance = (accNo, arr) => {
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i].cusName === name) {
+      if (arr[i].accNo === accNo) {
         return arr[i].currBal;
-      }
-    }
-  };
-
-  const getId = (name, arr) => {
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i].cusName === name) {
-        return arr[i].id;
       }
     }
   };
@@ -53,93 +45,89 @@ const MoneyTransfer = () => {
     }, duration);
   };
 
-  const transferFunds = (e) => {
+  const transferFunds = async (e) => {
     e.preventDefault();
 
-    var select1 = document.getElementById('customers1');
+    var select1 = document.getElementById('accounts1');
     var value1 = select1.options[select1.selectedIndex].value;
 
-    var select2 = document.getElementById('customers2');
+    var select2 = document.getElementById('accounts2');
     var value2 = select2.options[select2.selectedIndex].value;
 
     let amount = document.getElementById('amt').value;
 
     if (value1 === value2) {
-      showPopupWithDuration('❌ Transaction cannot be done between the same users!', 2000);
+      showPopupWithDuration('❌ Transaction cannot be done between the same accounts!', 2000);
       return;
     } else {
-      if (getAmount(value1, done) < amount) {
+      if (getAccountBalance(value1, done) < amount) {
         showPopupWithDuration('❌ Insufficient balance', 2000);
         return;
       }
 
-      let user1_id = getId(value1, done);
-      let user2_id = getId(value2, done);
+      let account1 = done.find((item) => item.accNo === value1);
+      let account2 = done.find((item) => item.accNo === value2);
 
-      let user1_amount = getAmount(value1, done);
-      let user2_amount = getAmount(value2, done);
+      let balanceOfAccount1 = account1.currBal - amount;
+      let balanceOfAccount2 = account2.currBal + Number(amount);
 
-      let docToUpdate1 = doc(database, 'customers', `${user1_id}`);
-      let docToUpdate2 = doc(database, 'customers', `${user2_id}`);
-
-      let balanceOfUser1 = user1_amount - amount;
-      let balanceOfUser2 = user2_amount + Number(amount);
+      let docToUpdate1 = doc(database, 'customers', account1.id);
+      let docToUpdate2 = doc(database, 'customers', account2.id);
 
       updateDoc(docToUpdate1, {
-        currBal: balanceOfUser1,
+        currBal: balanceOfAccount1,
       });
 
       updateDoc(docToUpdate2, {
-        currBal: balanceOfUser2,
+        currBal: balanceOfAccount2,
       })
-        .then(() => {
+        .then(async () => {
+          // Record the successful transaction with a timestamp
+          await addDoc(transactions, {
+            from: account1.accNo,
+            from_name:account1.cusName,
+            to: account2.accNo,
+            to_name:account2.cusName,
+            Amount_transfered: amount,
+            timestamp: serverTimestamp(), // Server timestamp for the time of the transaction
+          });
+
           showPopupWithDuration('✅ Transaction Successfully', 2000);
         })
         .catch((err) => {
           showPopupWithDuration('❌ Technical Error! Try Again', 2000);
           console.log('ERRR' + err);
         });
-
-      addDoc(transactions, {
-        from: value1,
-        to: value2,
-        Amount_transfered: amount,
-      });
-
-      e.preventDefault();
     }
   };
 
   return (
     <section className="transfer_sec">
-
       <div className="container">
-
         <div className="transfer_box" data-aos="fade-up" data-aos-delay="100">
           <form onSubmit={transferFunds}>
             <h2 className='heading'>Transfer Money</h2>
             
-            <select name="customers" id="customers1" placeholder="Debited from">
+            <select name="accounts" id="accounts1" placeholder="Debited from">
               <option value="">Debit from</option>
               {done.map((item, i) => (
-                <option key={i} value={item.cusName}>
-                  {item.cusName} (Aval. Bal ₹{item.currBal})
+                <option key={i} value={item.accNo}>
+                  {item.cusName} ({item.accNo}) (Aval. Bal ₹{item.currBal})
                 </option>
               ))}
             </select>
 
-            <select name="customers" id="customers2" placeholder="Credited to">
-              <option value="">Credit to </option>
+            <select name="accounts" id="accounts2" placeholder="Credited to">
+              <option value="">Credit to</option>
 
               {done.map((item, i) => (
-                <option key={i} value={item.cusName}>
-                  {item.cusName} (Aval. Bal ₹{item.currBal})
+                <option key={i} value={item.accNo}>
+                  {item.cusName} ({item.accNo}) (Aval. Bal ₹{item.currBal})
                 </option>
               ))}
             </select>
 
             <input type="number" id="amt" className="amount" placeholder="Enter Amount (in ₹)" required />
-
             <input type="submit" className="submitBtn" value="Submit" />
           </form>
         </div>

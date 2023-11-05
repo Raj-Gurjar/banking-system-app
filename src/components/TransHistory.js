@@ -1,34 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, getDocs, query, orderBy } from 'firebase/firestore';
 import { database } from '../firebaseConfig';
-// import History from './History';
 import '../styles/transHistory.scss';
+import '../styles/viewCustomers.scss';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const TransactionHistory = () => {
+const TransHistory = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, 
+      duration: 1000,
     });
   }, []);
-  
 
   const data = collection(database, 'transactions');
-
   const [done, setDone] = useState([]);
 
   const getTransactions = async () => {
-    const res = await getDocs(data);
-    const transactions = res.docs.map((item) => {
-      return { ...item.data() };
-    });
-    setDone(transactions);
+    try {
+      const res = await getDocs(query(data, orderBy('timestamp', 'desc'))); // Sort by timestamp in descending order
+      const transactions = res.docs.map((item) => {
+        return { ...item.data(), id: item.id };
+      });
+      setDone(transactions);
+    } catch (error) {
+      console.error('Error fetching transactions:', error);
+    }
   };
 
   useEffect(() => {
     getTransactions();
   }, []);
+
+  const addTransaction = async (from, to, from_name, to_name, amount) => {
+    try {
+      const transactionsRef = collection(database, 'transactions');
+
+      // Add a new transaction with the current server timestamp
+      await addDoc(transactionsRef, {
+        from: from,
+        to: to,
+        from_name: from_name,
+        to_name: to_name,
+        Amount_transfered: amount,
+        timestamp: serverTimestamp(),
+      });
+
+      // Refresh the transaction history
+      getTransactions();
+    } catch (error) {
+      console.error('Error adding transaction:', error);
+    }
+  };
 
   return (
     <section className="transactions_cls">
@@ -40,21 +63,23 @@ const TransactionHistory = () => {
         <table data-aos="zoom-in" data-aos-delay="0">
           <thead>
             <tr>
-              <th>Sender</th>
-              <th>Receiver</th>
+              <th>Sender AccNo.</th>
+              <th>Sender Name</th>
+              <th>Receiver AccNo.</th>
+              <th>Receiver Name</th>
               <th>Amount Transferred</th>
-              {/* <th>Time</th>
-              <th>Status</th> */}
+              <th>Time</th>
             </tr>
           </thead>
           <tbody data-aos="fade-up" data-aos-delay="100">
             {done.map((item, index) => (
               <tr key={index + 1} className="values">
                 <td>{item.from}</td>
+                <td>{item.from_name}</td>
                 <td>{item.to}</td>
+                <td>{item.to_name}</td>
                 <td>Rs.{item.Amount_transfered}</td>
-                {/* <td>{item.time}</td>
-                <td>{item.status}</td> */}
+                <td>{item.timestamp ? new Date(item.timestamp.toDate()).toLocaleString() : 'N/A'}</td>
               </tr>
             ))}
           </tbody>
@@ -64,4 +89,4 @@ const TransactionHistory = () => {
   );
 };
 
-export default TransactionHistory;
+export default TransHistory;

@@ -7,8 +7,8 @@ import Footer from './components/Footer';
 import ViewCustomers from './components/ViewCustomers';
 import TransHistory from './components/TransHistory';
 import MoneyTransfer from './components/MoneyTransfer';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
+// import SignIn from './components/SignIn';
+// import SignUp from './components/SignUp';
 // import { app, database } from './firebaseConfig';
 
 function App() {
