@@ -3,7 +3,7 @@ import Service from '../components/Services';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../styles/home.scss';
-import home_image from '../images/home-img.webp';
+import home_image from '../images/home-img.svg';
 import banklogo from '../images/logo3.png';
 import wallet from '../images/wallet.png';
 import fstMny from '../images/fastMoney.png';
