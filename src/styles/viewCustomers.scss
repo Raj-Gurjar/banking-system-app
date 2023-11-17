@@ -72,6 +72,15 @@ table {
   }
 }
 
+.no-customers-msg
+{
+  display: grid;
+  margin: 50px;
+  // background-color: red;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+}
 // @media (max-width: 500px) {
 //   .add_btn {
 //   }
